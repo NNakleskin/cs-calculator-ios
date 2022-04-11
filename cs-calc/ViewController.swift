@@ -88,10 +88,36 @@ class ViewController: UIViewController
                 result.text = " "
                 result.text = String((~Int(UserNum1)));
             }
+            else if sender.tag == 18 // sqrt
+            {
+                if UserNum1 < 0
+                {
+                    resultSmall.text = "Error: the root of a negative number"
+                    result.text = "Error: the root of a negative number"
+                }
+                else
+                {
+                    resultSmall.text = String(sqrt(UserNum1))
+                    result.text = String(sqrt(UserNum1))
+                }
+            }
+            else if sender.tag == 20 // square
+            {
+                resultSmall.text = String(UserNum1 * UserNum1)
+                result.text = String(UserNum1 * UserNum1)
+            }
             else if sender.tag == 24 // fact
             {
-                result.text = " "
-                result.text = String((fact(x:Int(UserNum1))));
+                if Int(UserNum1) < 21
+                {
+                    result.text = " "
+                    resultSmall.text = String((fact(x:Int(UserNum1))));
+                    result.text = String((fact(x:Int(UserNum1))));
+                }
+                else
+                {
+                    result.text = "Integer owerflow"
+                }
             }
 
         }
@@ -100,6 +126,7 @@ class ViewController: UIViewController
             UserNum1 = 0.0
             UserNum2 = 0.0
             result.text = "";
+            resultSmall.text = "";
         }
         
     }
