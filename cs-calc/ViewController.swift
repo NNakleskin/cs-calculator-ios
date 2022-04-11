@@ -230,22 +230,22 @@ class ViewController: UIViewController
             }
             if operation == "+"
             {
-                UserNum1 = Double(Int(UserNum2) + Int(UserNum1))
+                UserNum1 = Double(UserNum2  + UserNum1)
                 result.text = String(UserNum1)
             }
             if operation == "X"
             {
-                UserNum1 = Double(Int(UserNum2)  * Int(UserNum1))
+                UserNum1 = Double(UserNum2  * UserNum1)
                 result.text = String(UserNum1)
             }
             if operation == "/"
             {
-                UserNum1 = Double(Int(UserNum2)  / Int(UserNum1))
+                UserNum1 = Double(UserNum2  / UserNum1)
                 result.text = String(UserNum1)
             }
             if operation == "-"
             {
-                UserNum1 = Double(Int(UserNum2)  - Int(UserNum1))
+                UserNum1 = Double(UserNum2  - UserNum1)
                 result.text = String(UserNum1)
             }
         }
