@@ -51,7 +51,7 @@ class ViewController: UIViewController
     
     @IBAction func ButtonActions(_ sender: UIButton)
     {
-        if result.text != "" && sender.tag != 16
+        if result.text != "" && sender.tag != 16 && sender.tag != 26
         {
             if sender.tag == 10 // bin
             {
@@ -120,6 +120,13 @@ class ViewController: UIViewController
                 }
             }
 
+        }
+        else if sender.tag == 26
+        {
+            result.text = String(Float.pi)
+            resultSmall.text = String(Double.pi)
+            UserNum1 = Double.pi
+            
         }
         else if sender.tag == 16 // delete
         {
