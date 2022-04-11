@@ -34,6 +34,7 @@ class ViewController: UIViewController
     var UserNum1: Double = 0;
     var UserNum2: Double = 0;
     var actSign: Bool = false;
+    var operation: String = "";
     
     @IBOutlet weak var result: UILabel!
     @IBOutlet weak var resultSmall: UILabel!
@@ -58,7 +59,7 @@ class ViewController: UIViewController
     
     @IBAction func ButtonActions(_ sender: UIButton)
     {
-        if result.text != "" && sender.tag != 16 && sender.tag != 26
+        if result.text != "" && sender.tag != 16 && sender.tag != 26 && sender.tag != 25
         {
             if sender.tag == 10 // bin
             {
@@ -85,20 +86,47 @@ class ViewController: UIViewController
                     resultSmall.text = String(Int32(Int(UserNum1)).binaryDescription)
                 }
             }
+            else if sender.tag == 11 // XOR
+            {
+                operation = "XOR"
+                UserNum2 = UserNum1
+                UserNum1 = 0
+                result.text = ""
+                resultSmall.text = "XOR"
+            }
+            else if sender.tag == 12 // AND
+            {
+                operation = "AND"
+                UserNum2 = UserNum1
+                UserNum1 = 0
+                result.text = ""
+                resultSmall.text = "AND"
+            }
             else if sender.tag == 13 // HEX
             {
                 resultSmall.text = ""
                 result.text = "0x" + String(Int(UserNum1), radix: 16)
             }
-            else if sender.tag == 28  //DEC
+            else if sender.tag == 14 // OR
             {
-                resultSmall.text = String(UserNum1)
-                result.text = String(UserNum1)
+                operation = "OR"
+                UserNum2 = UserNum1
+                UserNum1 = 0
+                result.text = ""
+                resultSmall.text = "OR"
             }
             else if sender.tag == 15 // not
             {
                 result.text = " "
                 result.text = String((~Int(UserNum1)));
+            }
+            else if sender.tag == 17 // /
+            {
+                operation = "/"
+                UserNum2 = UserNum1
+                UserNum1 = 0
+                result.text = ""
+                resultSmall.text = "/"
             }
             else if sender.tag == 18 // sqrt
             {
@@ -113,10 +141,39 @@ class ViewController: UIViewController
                     result.text = String(sqrt(UserNum1))
                 }
             }
+            else if sender.tag == 19 // X
+            {
+                operation = "X"
+                UserNum2 = UserNum1
+                UserNum1 = 0
+                result.text = ""
+                resultSmall.text = "X"
+            }
             else if sender.tag == 20 // square
             {
                 resultSmall.text = String(UserNum1 * UserNum1)
                 result.text = String(UserNum1 * UserNum1)
+            }
+            else if sender.tag == 21 // -
+            {
+                operation = "-"
+                UserNum2 = UserNum1
+                UserNum1 = 0
+                result.text = ""
+                resultSmall.text = "-"
+            }
+            else if sender.tag == 22 // 2^n
+            {
+                UserNum1 = Double(pow(2, UserNum1))
+                result.text = String(UserNum1)
+            }
+            else if sender.tag == 23 // +
+            {
+                operation = "+"
+                UserNum2 = UserNum1
+                UserNum1 = 0
+                result.text = ""
+                resultSmall.text = "+"
             }
             else if sender.tag == 24 // fact
             {
@@ -130,6 +187,11 @@ class ViewController: UIViewController
                 {
                     result.text = "Integer owerflow"
                 }
+            }
+            else if sender.tag == 28  //DEC
+            {
+                resultSmall.text = String(UserNum1)
+                result.text = String(UserNum1)
             }
 
         }
@@ -146,6 +208,44 @@ class ViewController: UIViewController
             UserNum2 = 0.0
             result.text = "";
             resultSmall.text = "";
+        }
+        else if sender.tag == 25
+        {
+            if operation == "XOR"
+            {
+                UserNum1 = Double(Int(UserNum2) ^ Int(UserNum1))
+                result.text = String(UserNum1)
+            }
+            if operation == "AND"
+            {
+                UserNum1 = Double(Int(UserNum2) & Int(UserNum1))
+                result.text = String(UserNum1)
+            }
+            if operation == "OR"
+            {
+                UserNum1 = Double(Int(UserNum2) | Int(UserNum1))
+                result.text = String(UserNum1)
+            }
+            if operation == "+"
+            {
+                UserNum1 = Double(Int(UserNum2) + Int(UserNum1))
+                result.text = String(UserNum1)
+            }
+            if operation == "X"
+            {
+                UserNum1 = Double(Int(UserNum2)  * Int(UserNum1))
+                result.text = String(UserNum1)
+            }
+            if operation == "/"
+            {
+                UserNum1 = Double(Int(UserNum2)  / Int(UserNum1))
+                result.text = String(UserNum1)
+            }
+            if operation == "-"
+            {
+                UserNum1 = Double(Int(UserNum2)  - Int(UserNum1))
+                result.text = String(UserNum1)
+            }
         }
         
     }
