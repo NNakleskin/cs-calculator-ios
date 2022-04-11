@@ -45,8 +45,15 @@ class ViewController: UIViewController
             result.text = String(sender.tag)
             actSign = false
         }
-        result.text = result.text! + String(sender.tag)
-        UserNum1 = Double(result.text!)!
+        if sender.tag == 27
+        {
+            result.text = result.text! + "."
+        }
+        else
+        {
+            result.text = result.text! + String(sender.tag)
+            UserNum1 = Double(result.text!)!
+        }
     }
     
     @IBAction func ButtonActions(_ sender: UIButton)
@@ -121,7 +128,7 @@ class ViewController: UIViewController
             }
 
         }
-        else if sender.tag == 26
+        else if sender.tag == 26 // PI number
         {
             result.text = String(Float.pi)
             resultSmall.text = String(Double.pi)
