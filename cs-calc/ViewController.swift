@@ -85,10 +85,15 @@ class ViewController: UIViewController
                     resultSmall.text = String(Int32(Int(UserNum1)).binaryDescription)
                 }
             }
-            else if sender.tag == 13 // xor
+            else if sender.tag == 13 // HEX
             {
                 resultSmall.text = ""
                 result.text = "0x" + String(Int(UserNum1), radix: 16)
+            }
+            else if sender.tag == 28  //DEC
+            {
+                resultSmall.text = String(UserNum1)
+                result.text = String(UserNum1)
             }
             else if sender.tag == 15 // not
             {
