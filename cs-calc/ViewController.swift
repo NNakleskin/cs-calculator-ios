@@ -137,6 +137,7 @@ class ViewController: UIViewController
                 }
                 else
                 {
+                    UserNum1 = sqrt(UserNum1)
                     resultSmall.text = String(sqrt(UserNum1))
                     result.text = String(sqrt(UserNum1))
                 }
@@ -151,8 +152,9 @@ class ViewController: UIViewController
             }
             else if sender.tag == 20 // square
             {
-                resultSmall.text = String(UserNum1 * UserNum1)
-                result.text = String(UserNum1 * UserNum1)
+                UserNum1 = UserNum1 * UserNum1
+                resultSmall.text = String(UserNum1)
+                result.text = String(UserNum1)
             }
             else if sender.tag == 21 // -
             {
@@ -179,9 +181,10 @@ class ViewController: UIViewController
             {
                 if Int(UserNum1) < 21
                 {
+                    UserNum1 = Double(fact(x:Int(UserNum1)))
                     result.text = " "
-                    resultSmall.text = String((fact(x:Int(UserNum1))));
-                    result.text = String((fact(x:Int(UserNum1))));
+                    resultSmall.text = String(UserNum1);
+                    result.text = String(UserNum1);
                 }
                 else
                 {
@@ -193,7 +196,6 @@ class ViewController: UIViewController
                 resultSmall.text = String(UserNum1)
                 result.text = String(UserNum1)
             }
-
         }
         else if sender.tag == 26 // PI number
         {
@@ -247,14 +249,11 @@ class ViewController: UIViewController
                 result.text = String(UserNum1)
             }
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 
