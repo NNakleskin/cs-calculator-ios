@@ -138,8 +138,8 @@ class ViewController: UIViewController
                 else
                 {
                     UserNum1 = sqrt(UserNum1)
-                    resultSmall.text = String(sqrt(UserNum1))
-                    result.text = String(sqrt(UserNum1))
+                    resultSmall.text = String(UserNum1)
+                    result.text = String(UserNum1)
                 }
             }
             else if sender.tag == 19 // X
